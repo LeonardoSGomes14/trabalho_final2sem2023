@@ -10,9 +10,9 @@ class usermodel
 
     //Criar User
 
-    public function criaruser($nome, $email, $senha, $alvl)
+    public function criarUser($nome, $email, $senha, $alvl)
     {
-        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO usuarios (nome, email, senha, alvl) VALUES (?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$nome, $email, $senha, $alvl]);
     }
@@ -35,5 +35,12 @@ class usermodel
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$nome, $email, $senha, $alvl, $id]);
     }
+
+    public function deletarusers($id) {
+    $sql = "DELETE FROM usuarios WHERE id = ?";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([$id]);
 }
+}
+
 ?>

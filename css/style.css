@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0 auto;
+}
+
+.cad-log{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 770px;
+}
+
+#container-cad{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 40%;
+    background-color: #dddbdb;
+}
+
+.cad{
+    width: 100%;
+}
+
+.cad p{
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    color: #1B6995;
+    font-weight:600;
+}
+
+.lab{
+    padding: 40px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.inp{
+    padding: 5px 0px 0px 0px;
+}
+
+.rs{
+    margin: 20px 0px 0px 0px;
+}
+
+.icone{
+    height: 30px;
+    width: 30px;
+    padding: 0px 10px 0px 10px;
+    transition: 0.5s;
+    filter: opacity(70%);
+}
+
+.icone:hover{
+    transform: scale(120%);
+    filter: opacity(100%);
+}
+
+.botao{ 
+    margin: 20px 0px 0px 0px;
+    background-color: #1B6995;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    width: 120px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0px 2px 4px #4b4b4b;
+    transition: 0.5s;
+}
+
+.botao a{
+    text-decoration: none;
+    color: white;
+}
+
+.botao:hover{
+    transform: scale(105%);
+    background-color: #0c3750;
+}
+
+input{
+    background: none;
+    border: solid 1px #000000;
+    padding: 0vw 0vw 0vw .5vw;
+    width: 250px;
+    height: 20px;
+    border-radius: 30px;
+    box-shadow: 0px 2px 4px #4b4b4b;
+}
+
+.pag-i{
+    padding: 20px 0px 0px 0px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.pag-i a{
+    text-decoration: none;
+    color:#1B6995;
+    transition: 0.5s;
+}
+
+.pag-i a:hover{
+    color: #0c3750;
+}
+
+#container-log{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 60%;
+    background-color: #1B6995;
+}
+
+.text-log{
+    color: white;
+    width: 500px;
+    text-align: center;
+}
+
+.text-log h1{
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.text-log h3{
+    padding: 0px 0px 60px 0px;
+}
+
+.log-a{
+    text-decoration: none;
+}
+
+.log{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 70px;
+    background-color: #dddbdb;
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.log:hover{
+    transform: scale(105%);
+    box-shadow: 0px 0px 40px #ddc1c1;
+}
+
+.log-p{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1B6995;
+}
+
+@media screen and (max-width: 900px) {
+    
+    .cad-log{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 770px;
+    }
+
+    #container-cad{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        background-color: #dddbdb;
+    }
+
+    .icone-lc{
+        height: 30px;
+        width: 30px;
+        padding: 0px 10px 0px 10px;
+        transition: 0.5s;
+        filter: opacity(70%);
+    }    
+
+    .icone-lc:hover{
+        transform: scale(120%);
+        filter: opacity(100%);
+    }
+    
+    .pag-i{
+        padding: 40px 0px 40px 0px;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+
+    #container-log{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        background-color:#1B6995;
+    }
+
+    .text-log{
+        color: white;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .text-log h1{
+        font-weight: bold;
+        font-size: 3rem;
+    }
+    
+    .text-log h3{
+        padding: 0px 0px 30px 0px;
+    }
+    
+    .log-a{
+        text-decoration: none;
+        margin: 0px 0px 20px 0px;
+    }
+    
+    .log{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: 70px;
+        background-color: #dddbdb;
+        border-radius: 30px;
+        transition: .5s;
+    }
+    .log-p{
+        font-size: 2rem;
+        font-weight: bold;
+        color: #1B6995;
+    }
+    
+}

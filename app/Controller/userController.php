@@ -6,13 +6,13 @@ class userController
 
     private $usermodel;
 
-    public function _construct($pdo) {
+    public function __construct($pdo) {
         $this->usermodel = new usermodel($pdo);
     }
 
 
-    public function criaruser($nome, $email, $senha, $alvl){
-        $this->usermodel->criaruser($nome, $email, $senha, $alvl);
+    public function criarUser($nome, $email, $senha, $alvl){
+        $this->usermodel->criarUser($nome, $email, $senha, $alvl);
     }
 
 
