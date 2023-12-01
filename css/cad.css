@@ -5,6 +5,8 @@
     user-select: none;
   }
   
+
+
   body {
     width: 100%;
     height: 100vh;
@@ -19,15 +21,11 @@
   
   .main {
     position: relative;
-    width: 1000px;
-    min-width: 1000px;
-    min-height: 600px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     padding: 25px;
     background-color:  #1B6995;
     box-shadow: 10px 10px 10px #c7dcfc, -10px -10px 10px #f9f9f9;
-    border-radius: 12px;
-    overflow: hidden;
   }
   @media (max-width: 1200px) {
     .main {
@@ -56,11 +54,11 @@
     align-items: center;
     position: absolute;
     top: 0;
-    width: 600px;
+    width: 50%;
     height: 100%;
     padding: 25px;
     background-color: #2277a8;
-    transition: 1.25s;
+    transition: 1s;
   }
   
   .form {
@@ -104,6 +102,7 @@
   .form__span {
     margin-top: 30px;
     margin-bottom: 12px;
+    color: #ececec;
   }
   .form__link {
     color: #181818;
@@ -145,11 +144,11 @@
   /**/
   .a-container {
     z-index: 100;
-    left: calc(100% - 600px );
+    left: calc(100% - 50%);
   }
   
   .b-container {
-    left: calc(100% - 600px );
+    left: calc(100% - 50% );
     z-index: 0;
   }
   
@@ -161,10 +160,10 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 400px;
+    width: 50%;
     padding: 50px;
     z-index: 200;
-    transition: 1.25s;
+    transition: 1s;
     background-color: #ecf0f3;
     overflow: hidden;
     box-shadow: 4px 4px 10px #d1d9e6, -4px -4px 10px #f9f9f9;
@@ -175,14 +174,14 @@
     height: 500px;
     border-radius: 50%;
     background-color: #ecf0f3;
-    box-shadow: inset 8px 8px 12px #d1d9e6, inset -8px -8px 12px #f9f9f9;
-    bottom: -60%;
-    left: -60%;
-    transition: 1.25s;
+    box-shadow: inset 8px 8px 12px #c5d5ee, inset -8px -8px 12px #b6d0f8;
+    bottom: -30%;
+    left: -30%;
+    transition: 1s;
   }
   .switch__circle--t {
-    top: -30%;
-    left: 60%;
+    top: -100px;
+    left: 80%;
     width: 300px;
     height: 300px;
   }
@@ -192,9 +191,9 @@
     align-items: center;
     flex-direction: column;
     position: absolute;
-    width: 400px;
+    width: 50%;
     padding: 50px 55px;
-    transition: 1.25s;
+    transition: 1s;
   }
   .switch__button {
     cursor: pointer;
@@ -211,38 +210,38 @@
   }
   
   .is-txr {
-    left: calc(100% - 400px );
-    transition: 1.25s;
+    left: calc(100% - 50% );
+    transition: 1s;
     transform-origin: left;
   }
   
   .is-txl {
     left: 0;
-    transition: 1.25s;
+    transition: 1s;
     transform-origin: right;
   }
   
   .is-z200 {
     z-index: 200;
-    transition: 1.25s;
+    transition: 1s;
   }
   
   .is-hidden {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    transition: 1.25s;
+    transition: 1s;
   }
   
   .is-gx {
-    animation: is-gx 1.25s;
+    animation: is-gx 1s;
   }
   
   @keyframes is-gx {
     0%, 10%, 100% {
-      width: 400px;
+      width: 50%;
     }
     30%, 50% {
-      width: 500px;
+      width: 50%;
     }
   }

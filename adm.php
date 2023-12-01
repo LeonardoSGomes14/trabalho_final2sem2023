@@ -16,6 +16,7 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/icons8-book-96.png" type="image/x-icon">
     <title>Página do Administrador</title>
 </head>
 

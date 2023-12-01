@@ -16,6 +16,7 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/icons8-book-96.png" type="image/x-icon">
     <title>Página do Administrador</title>
 </head>
 
@@ -23,9 +24,6 @@ if (!isset($_SESSION['id'])) {
     <header>
 
     </header>
-
-
-
 
 
     <section>
@@ -127,19 +125,6 @@ if (!isset($_SESSION['id'])) {
             </form>
 
 
-            <?php
-            session_start();
-
-            if (!isset($_SESSION['id'])) {
-                header("Location:login.php");
-                exit();
-            }
-
-            ?>
-
-
-
-
             <div class="cad">
                 <p>Cadastro</p>
             </div>
@@ -190,7 +175,6 @@ if (!isset($_SESSION['id'])) {
 
 
 
-
             <?php
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -217,6 +201,7 @@ if (!isset($_SESSION['id'])) {
                 }
             }
             ?>
+
 
 
     </section>
