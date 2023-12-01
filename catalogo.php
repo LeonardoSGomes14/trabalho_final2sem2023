@@ -11,6 +11,36 @@ include_once('db/config.php');
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
 }
+
+$bookController = new bookController($pdo);
+$emprestimoController = new EmpController($pdo);
+
+$books = $bookController->listarbooks();
+
+$booksPorCategoria = [];
+foreach ($books as $book) {
+    $categoria = $book['categoria'];
+    if (!isset($booksPorCategoria[$categoria])) {
+        $booksPorCategoria[$categoria] = [];
+    }
+    $booksPorCategoria[$categoria][] = $book;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['emprestar'])) {
+    $id_livro = $_POST['id_livro'];
+    $livroNome = $_POST['nome'];
+    $usuarioNome = $_SESSION['usuarioNomedeUsuario'];
+
+    $emprestimoController->emplivro($id_livro, $livroNome, $usuarioNome);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
+    $id_livro = $_POST['id_livro'];
+
+    $emprestimoController->devolverLivro($id_livro);
+}
+
+?>
 ?>
 
 

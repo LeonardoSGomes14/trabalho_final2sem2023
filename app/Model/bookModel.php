@@ -13,6 +13,8 @@ class bookmodel
         $sql = "INSERT INTO livros (nome, genero, qnt, autor, imagem) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$nome, $genero, $qnt, $autor, $imagem]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
 

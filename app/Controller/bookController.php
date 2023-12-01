@@ -12,18 +12,12 @@ class bookController
 
     public function criarbook($nome, $genero, $qnt, $autor, $imagem)
     {
-        $this->bookmodel->criarbook($nome, $genero, $qnt, $autor, $imagem);
+        return $this->bookmodel->criarbook($nome, $genero, $qnt, $autor, $imagem);
     }
 
     public function listarbooks()
     {
         return $this->bookmodel->listarbooks();
-    }
-
-    public function exibirListabooks()
-    {
-        $books = $this->bookmodel->listarbooks();
-        include 'Views/book/lista.php';
     }
 
     public function atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem)
@@ -36,3 +30,4 @@ class bookController
         $this->bookmodel->deletarbooks($id);
     }
 }
+?>

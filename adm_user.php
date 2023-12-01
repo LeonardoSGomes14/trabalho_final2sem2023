@@ -99,35 +99,37 @@ if (!isset($_SESSION['id'])) {
                 <input type="text" name="atualizar_email" placeholder="Email">
                 <input type="password" name="atualizar_senha" placeholder="Senha">
                 <input type="text" name="atualizar_alvl" placeholder="Nível de Acesso">
-                <div class="inp"><button type="submit">Atualizar</button></div>
-            </div>
+                <div class="inp"><button type="submit">Atualizar</button>
+        </form>
+        </div>
+        </div>
 
-            <?php
-            if (isset($_POST['id'])) {
-                $usermodel->deletarusers(
-                    $_POST['id']
-                );
-            }
-            ?>
+        <?php
+        if (isset($_POST['id'])) {
+            $usermodel->deletarusers(
+                $_POST['id']
+            );
+        }
+        ?>
 
-            <h2>Excluir Usuário</h2>
-            <form method="post">
-                <div class="cadastro-n">
-                    <select name="id">
-                        <?php foreach ($users as $user) : ?>
-                            <option value="<?php echo $user['id']; ?>">
-                                <?php echo $user['nome']; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <div class="inp"><button type="submit">Deletar</button></div>
+        <h2>Excluir Usuário</h2>
+        <form method="post">
+            <div class="cadastro-n">
+                <select name="id">
+                    <?php foreach ($users as $user) : ?>
+                        <option value="<?php echo $user['id']; ?>">
+                            <?php echo $user['nome']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <div class="inp"><button type="submit">Deletar</button></div>
 
-            </form>
+        </form>
 
 
-<?php
+        <?php
 
-            if (isset($_POST['submit'])) {
+        if (isset($_POST['submit'])) {
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];
@@ -138,94 +140,70 @@ if (!isset($_SESSION['id'])) {
             $count = $stmt->fetchColumn();
 
             if ($count > 0) {
-            echo 'Esse perfil já foi cadastrado.';
+                echo 'Esse perfil já foi cadastrado.';
             } else {
-            $userController = new userController($pdo);
+                $userController = new userController($pdo);
 
-            $userController->criarUser($nome, $email, $senha, $alvl);
-            header("Location: login.php");
+                $userController->criarUser($nome, $email, $senha, $alvl);
+                header("Location: login.php");
             }
-            }
-            ?>
-
-            <?php
+        }
+        ?>
 
 
-            if (isset($_POST['submit'])) {
-                $nome = $_POST['nome'];
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-                $alvl = $_POST['alvl'];
+        <div class="cad">
+            <p>Cadastro</p>
+        </div>
 
-                $stmt = $pdo->prepare('SELECT COUNT(*) FROM usuarios WHERE email = ? AND senha = ?');
-                $stmt->execute([$email, $senha]);
-                $count = $stmt->fetchColumn();
-                
-                if ($count > 0) {
-                    echo 'Esse perfil já foi cadastrado.';
-                } else {
-                    $userController = new userController($pdo);
+        <form method="post">
+            <div class="lab">
+                <label for="nome">Nome Completo:</label>
+            </div>
 
-                    $userController->criarUser($nome, $email, $senha, $alvl);
-                    header("Location: login.php");
-                }
-            }
-            ?>
-
-     
-                    <div class="cad">
-                        <p>Cadastro</p>
-                    </div>
-
-                    <form method="post">
-                        <div class="lab">
-                            <label for="nome">Nome Completo:</label>
-                        </div>
-
-                        <div class="inp">
-                            <input type="text" name="nome" required><br>
-                        </div>
+            <div class="inp">
+                <input type="text" name="nome" required><br>
+            </div>
 
 
 
-                        <div class="lab">
-                            <label for="email">Email:</label>
-                        </div>
+            <div class="lab">
+                <label for="email">Email:</label>
+            </div>
 
-                        <div class="inp">
-                            <input type="email" name="email" required><br>
-                        </div>
+            <div class="inp">
+                <input type="email" name="email" required><br>
+            </div>
 
 
 
-                        <div class="lab">
-                            <label for="senha">Senha:</label>
-                        </div>
+            <div class="lab">
+                <label for="senha">Senha:</label>
+            </div>
 
-                        <div class="inp">
-                            <input type="password" name="senha" required>
-                        </div>
+            <div class="inp">
+                <input type="password" name="senha" required>
+            </div>
 
-                        <div class="lab">
-                            <label for="alvl">Nível de Acesso</label>
-                        </div>
+            <div class="lab">
+                <label for="alvl">Nível de Acesso</label>
+            </div>
 
-                        <div class="inp">
-                            <input type="text" name="alvl" required>
-                        </div>
+            <div class="inp">
+                <input type="text" name="alvl" required>
+            </div>
 
-                        <button class="botao" type="submit" name="submit" value="cadastrar">Cadastrar</button>
-                    </form>
+            <button class="botao" type="submit" name="submit" value="cadastrar">Cadastrar</button>
+        </form>
 
-                </section>
+    </section>
 
 
 
 
 
-                <footer>
+    <footer>
 
-                </footer>
+    </footer>
 </body>
 
 </html>

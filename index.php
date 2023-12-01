@@ -32,20 +32,20 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         <div class="princ">
             <a href="index.php"><img class="logo" src="images/icons8-digital-library-60.png" alt=""></a>
             <nav class="nav-bar">
-    <ul>
-        <li class="nav-bts"><a class="nav-link" href="sobre.html">LIVROS</a></li>
-        <li class="nav-bts"><a class="nav-link" href="equipes.php">CONHEÇAS AS EQUIPES</a></li>
-        <li class="nav-bts"><a class="nav-link" href="galeria.php">GALERIA</a></li>
-        <li class="nav-bts"><a class="nav-link" href="index.php#sessao_not">NOTÍCIAS</a></li>
-        <li class="nav-bts"><a class="nav-link" href="ingressos.php">ADQUIRA SEU INGRESSO</a></li>
-    </ul>
-</nav>
-        <div class="icone-l">
-            <a href="login.php">
-                <img id="user" src="images/user.png" alt="login">
-                <p class="text-user">Login</p>
-            </a>
-        </div>
+                <ul>
+                    <li class="nav-bts"><a class="nav-link" href="sobre.php">SOBRE</a></li>
+                    <li class="nav-bts"><a class="nav-link" href="catalogo.php">TODOS OS LIVROS</a></li>
+                    <li class="nav-bts"><a class="nav-link" href="">GÊNEROS</a></li>
+                    <li class="nav-bts"><a class="nav-link" href="privacidade.php">CONTATO</a></li>
+
+                </ul>
+            </nav>
+            <div class="icone-l">
+                <a href="login.php">
+                    <img id="user" src="images/user.png" alt="login">
+                    <p class="text-user">Login</p>
+                </a>
+            </div>
 
         </div>
     </header>
@@ -54,9 +54,8 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
 
     <section>
-        <h1>Initial Page</h1>
-        <a href="gerar_pdf.php">Gerar PDF</a>
 
+      
     </section>
 
 
