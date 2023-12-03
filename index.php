@@ -27,27 +27,28 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 </head>
 
 <body>
-
-    <header>
-        <div class="princ">
-            <a href="index.php"><img class="logo" src="images/icons8-digital-library-60.png" alt=""></a>
+    <div class="princ">
+        <header>
+            <div class="logo">
+                <a href="index.php">
+                    <img src="images/logomybiblio-removebg-preview.png" alt="logotipo">
+                </a>
+            </div>
             <nav class="nav-bar">
                 <ul>
-                    <li class="nav-bts"><a class="nav-link" href="sobre.php">SOBRE</a></li>
-                    <li class="nav-bts"><a class="nav-link" href="catalogo.php">TODOS OS LIVROS</a></li>
-                    <li class="nav-bts"><a class="nav-link" href="">GÊNEROS</a></li>
-                    <li class="nav-bts"><a class="nav-link" href="privacidade.php">CONTATO</a></li>
+                    <li class="nav-bts"><a class="nav-link" href="sobre.php">SOBRE NÓS</a></li>
+                    <li class="nav-bts"><a class="nav-link" href="catalogo.php">LIVROS</a></li>
 
                 </ul>
             </nav>
             <div class="icone-l">
-                <a href="login.php">
+                <a class="text-user" href="login.php">
                     <img id="user" src="images/user.png" alt="login">
-                    <p class="text-user">Login</p>
+                    <p>Login</p>
                 </a>
             </div>
 
-        </div>
+    </div>
     </header>
 
 
@@ -55,7 +56,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
     <section>
 
-      
+<h1>CONTENT</h1>
     </section>
 
 
@@ -63,6 +64,30 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
 
     <footer>
+            <div class="logo">
+                <a href="index.php">
+                    <img src="images/logomybiblio-removebg-preview.png" alt="logotipo">
+                </a>
+            </div>
+
+            <div>
+              
+              <a class="nav-link" href="sobre.php">Sobre nós</a>
+              <a class="nav-link" href="privacidade.php">Política de Privacidade</a>
+              <a class="nav-link" href="catalogo.php">Nosso Acervo</a>
+            
+            </div>
+
+
+            <div>
+                <div><p>Contate-nos</p></div>
+                <div>
+                    <a href=""><img class="footericon" src="images/icons8-whatsapp-50.png" alt=""></a>
+                    <a href=""><img class="footericon" src="images/icons8-instagram-50.png" alt=""></a>
+                    <a href=""><img class="footericon" src="images/icons8-facebook-50.png" alt=""></a>
+                    <a href=""><img class="footericon" src="images/icons8-twitterx-50.png" alt=""></a>
+                </div>
+            </div>
 
     </footer>
 
