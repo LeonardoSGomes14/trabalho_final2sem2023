@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Livros</title>
 </head>
 
 <body>
-    <h1>Infromações dos Livros</h1>
+    <?php
+    $livrosPogenero = [];
+    foreach ($livros as $livro) {
+        $genero = $livro['genero'];
+        if (!isset($livrosPorgenero[$genero])) {
+            $livrosPorgenero[$genero] = [];
+        }
+        $livrosPorgenero[$genero][] = $livro;
+    }
+    ?>
 
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Gênero</th>
-            <th>Autor</th>
-            <th>Quantidade</th>
-            <th>Capa</th>
-        </tr>
+    <h1>Lista de Livros</h1>
 
-        <?php foreach ($books as $book) : ?>
-
-            <tr>
-                <td><?php echo $book['nome']; ?></td>
-                <td><?php echo $book['Gênero']; ?></td>
-                <td><?php echo $book['Quantidade']; ?></td>
-                <td><?php echo $book['Autor']; ?></td>
-                <td><?php echo $book['imagem']; ?></td>
-
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <?php foreach ($livrosPorgenero as $genero => $livrosNagenero) : ?>
+        <div class="genero">
+            <h2><?php echo $genero; ?></h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>genero_id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($livrosNogenero as $livro) : ?>
+                        <tr>
+                            <td>
+                                <?php
+                                if (!empty($livro['imagem'])) {
+                                    echo '<img src="' . $livro['imagem'] . '" alt="Imagem do Livro" width="100">';
+                                } else {
+                                    echo 'Sem Imagem';
+                                }
+                                ?>
+                            </td>
+                            <td><?php echo $livro['livro_id']; ?></td>
+                            <td><?php echo $livro['nome']; ?></td>
+                            <td><?php echo $livro['quantidade']; ?></td>
+                            <td><?php echo $livro['id_genero']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php endforeach; ?>
 </body>
 
 </html>

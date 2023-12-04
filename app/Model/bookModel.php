@@ -8,11 +8,11 @@ class bookmodel
         $this->pdo = $pdo;
     }
 
-    public function criarbook($nome, $genero, $qnt, $autor, $imagem)
+    public function criarbook($nome, $genero, $qnt, $autor, $imagem, $id_genero)
     {
-        $sql = "INSERT INTO livros (nome, genero, qnt, autor, imagem) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO livros (nome, genero, qnt, autor, imagem, $id_genero) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $genero, $qnt, $autor, $imagem]);
+        $stmt->execute([$nome, $genero, $qnt, $autor, $imagem, $id_genero]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
@@ -29,12 +29,12 @@ class bookmodel
 
     //Atualizar book 
 
-    public function atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem)
+    public function atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero)
     {
-        $sql = "UPDATE livros SET  nome = ?, genero = ?, qnt = ?, autor = ?, imagem = ?
+        $sql = "UPDATE livros SET  nome = ?, genero = ?, qnt = ?, autor = ?, imagem = ?, id_genero = ?
         WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $genero, $qnt, $autor, $imagem, $id]);
+        $stmt->execute([$nome, $genero, $qnt, $autor, $imagem, $id_genero, $id]);
     }
 
     public function deletarbooks($id) {

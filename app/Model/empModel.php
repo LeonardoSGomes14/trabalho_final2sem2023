@@ -8,7 +8,7 @@ class EmpModel {
     }
 
     public function empLivro($id_livro, $nome_livro, $nome_user) {
-        $consultaLivro = $this->pdo->prepare("SELECT qnt FROM livros WHERE livro_id = ?");
+        $consultaLivro = $this->pdo->prepare("SELECT qnt FROM livros WHERE id_livro = ?");
         $consultaLivro->execute([$id_livro]);
         $book = $consultaLivro->fetch(PDO::FETCH_ASSOC);
 
@@ -16,7 +16,7 @@ class EmpModel {
             $novaQnt = $book['qnt'] - 1;
             $this->atualizarqnt($id_livro, $novaQnt);
 
-            $inserirEmprestimo = $this->pdo->prepare("INSERT INTO emprestimos (book_emprestimo, nome_livro, nome_user, data) VALUES (?, ?, ?, NOW())");
+            $inserirEmprestimo = $this->pdo->prepare("INSERT INTO emprestimos (id_livro, nome_livro, nome_user, data) VALUES (?, ?, ?, NOW())");
             $inserirEmprestimo->execute([$id_livro, $nome_livro, $nome_user]);
 
             return true;
@@ -25,17 +25,17 @@ class EmpModel {
         return false;
     }
 
-    public function devolverLivro($id) {
-        $consultaEmprestimo = $this->pdo->prepare("SELECT livro_Emp, nome_livro, nome_user FROM emprestimos WHERE id = ?");
-        $consultaEmprestimo->execute([$id]);
+    public function devolverLivro($id_emprestimo) {
+        $consultaEmprestimo = $this->pdo->prepare("SELECT id_livro, nome_livro, nome_user FROM emprestimos WHERE id_emp = ?");
+        $consultaEmprestimo->execute([$id_emprestimo]);
         $emprestimo = $consultaEmprestimo->fetch(PDO::FETCH_ASSOC);
 
         if ($emprestimo) {
-            $id_livro = $emprestimo['livro_emprestimo'];
+            $id_livro = $emprestimo['id_livro'];
             $nome_livro = $emprestimo['nome_livro'];
             $nome_user = $emprestimo['nome_user'];
 
-            $consultaLivro = $this->pdo->prepare("SELECT qnt FROM livros WHERE livro_id = ?");
+            $consultaLivro = $this->pdo->prepare("SELECT qnt FROM livros WHERE id_livro = ?");
             $consultaLivro->execute([$id_livro]);
             $livro = $consultaLivro->fetch(PDO::FETCH_ASSOC);
 
@@ -43,10 +43,10 @@ class EmpModel {
                 $novaQnt = $livro['qnt'] + 1;
                 $this->atualizarQnt($id_livro, $novaQnt);
 
-                $this->registrarHistorico($id, $id_livro, $nome_livro, $nome_user);
+                $this->registrarHistorico($id_emprestimo, $id_livro, $nome_livro, $nome_user);
 
-                $excluirEmprestimo = $this->pdo->prepare("DELETE FROM emprestimos WHERE id = ?");
-                $excluirEmprestimo->execute([$id]);
+                $excluirEmprestimo = $this->pdo->prepare("DELETE FROM emprestimos WHERE id_emp = ?");
+                $excluirEmprestimo->execute([$id_emprestimo]);
 
                 return true;
             }
@@ -56,7 +56,7 @@ class EmpModel {
     }
 
     private function atualizarQnt($id_livro, $novaQnt) {
-        $atualizarQnt = $this->pdo->prepare("UPDATE livros SET qnt = ? WHERE livro_id = ?");
+        $atualizarQnt = $this->pdo->prepare("UPDATE livros SET qnt = ? WHERE id_livro = ?");
         $atualizarQnt->execute([$novaQnt, $id_livro]);
     }
     public function listarLivrosEmprestados($nome_user) {
@@ -65,10 +65,10 @@ class EmpModel {
     
         return $consultaLivrosEmprestados->fetchAll(PDO::FETCH_ASSOC);
     }
-    private function registrarHistorico($id, $id_livro, $nomeLivro, $nomeUsuario) {
-        $inserirHistorico = $this->pdo->prepare("INSERT INTO historico (emprestimo_id, livro_id, nome_livro, nome_aluno) VALUES (?, ?, ?, ?)");
-        $inserirHistorico->execute([$id, $id_livro, $nomeLivro, $nomeUsuario]);
-        $dataRegistrada = $this->pdo->query("SELECT hora FROM historico WHERE emprestimo_id = $id")->fetchColumn();
+    private function registrarHistorico($id_emp, $id_livro, $nomeLivro, $nomeUsuario) {
+        $inserirHistorico = $this->pdo->prepare("INSERT INTO historico (id_emp, id_livro, nome_livro, nome_aluno) VALUES (?, ?, ?, ?)");
+        $inserirHistorico->execute([$id_emp, $id_livro, $nomeLivro, $nomeUsuario]);
+        $dataRegistrada = $this->pdo->query("SELECT hora FROM historico WHERE id_emp = $id_emp")->fetchColumn();
     }
     
 }

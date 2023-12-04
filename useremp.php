@@ -49,16 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
 
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimos do Usuário</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/icons8-digital-library-96.png" type="image/x-icon">
-    <title>Lista de Livros</title>
 </head>
 
 <body>
@@ -87,45 +86,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
         </div>
     </header>
 
+
+
     <section>
-        <div class="user-info" id="user-info">
-
-            <h3>Olá <?php echo $_SESSION['nome'], "!"; ?> </h3><br>
-
-        </div>
-        <div class="acervo">
-            <h1>Nosso Acervo</h1>
-        </div>
-        <div class="livros">
-            <?php foreach ($booksPorgenero as $genero => $booksNogenero) : ?>
-                <div class="genero">
-                    <h2><?php echo $genero; ?></h2><br>
-                    <ul>
-                        <?php foreach ($booksNogenero as $livro) : ?>
-                            <li>
-                                <div class="livrobox">
-                                    <?php
-                                    if (!empty($livro['imagem'])) {
-                                        echo '<img src="' . $livro['imagem'] . '" alt="Imagem do Livro" width="100">';
-                                    } else {
-                                        echo 'Sem Imagem';
-                                    }
-                                    ?>
-                                    <?php echo $livro['nome']; ?><br>
-                                    <strong><?php echo $livro['qnt']; ?> Livro(s)</strong> Disponíveis
-                                    <form method="post" action="catalogo.php">
-                                        <input type="hidden" name="id_livro" value="<?php echo $livro['id_livro']; ?>">
-                                        <input type="hidden" name="nome" value="<?php echo $livro['nome']; ?>">
-                                        <button type="submit" name="emprestar">Emprestar</button>
-                                    </form>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+        <h4>Livros Emprestados</h4><br>
+        <ul>
+            <?php $livrosEmprestados = $emprestimoController->listarLivrosEmprestados($_SESSION['nome']); ?>
+            <?php foreach ($livrosEmprestados as $emprestimo) : ?>
+                <li>
+                    <?php echo "<strong>ID do Livro: </strong>" . $emprestimo['id_livro']; ?> <br>
+                    <?php echo "<strong>Livro: </strong>" . $emprestimo['nome_livro']; ?> <br>
+                    <?php echo "<strong>Nome do Usuário: </strong>" . $emprestimo['nome_user']; ?>
+                    <form method="post" action="catalogo.php">
+                        <input type="hidden" name="livro_id" value="<?php echo $emprestimo['id_emp']; ?>">
+                        <button type="submit" name="devolver">Devolver</button><br><br>
+                    </form>
+                </li>
             <?php endforeach; ?>
-        </div>
+        </ul>
     </section>
+
+
 
     <footer>
         <div class="logo">

@@ -10,9 +10,9 @@ class bookController
         $this->bookmodel = new bookmodel($pdo);
     }
 
-    public function criarbook($nome, $genero, $qnt, $autor, $imagem)
+    public function criarbook($nome, $genero, $qnt, $autor, $imagem, $id_genero)
     {
-        return $this->bookmodel->criarbook($nome, $genero, $qnt, $autor, $imagem);
+        return $this->bookmodel->criarbook($nome, $genero, $qnt, $autor, $imagem, $id_genero);
     }
 
     public function listarbooks()
@@ -20,9 +20,9 @@ class bookController
         return $this->bookmodel->listarbooks();
     }
 
-    public function atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem)
+    public function atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero)
     {
-        $this->bookmodel->atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem);
+        $this->bookmodel->atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero);
     }
 
     public function deletebooks($id)

@@ -21,7 +21,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/icons8-book-96.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/icons8-digital-library-96.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <title>Página Inicial</title>
 </head>
@@ -38,6 +38,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
                 <ul>
                     <li class="nav-bts"><a class="nav-link" href="sobre.php">SOBRE NÓS</a></li>
                     <li class="nav-bts"><a class="nav-link" href="catalogo.php">LIVROS</a></li>
+                    <li class="nav-bts"><a class="nav-link" href="useremp.php">MEUS EMPRÉSTIMOS</a></li>
 
                 </ul>
             </nav>
@@ -51,43 +52,44 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
     </div>
     </header>
 
-
-
-
     <section>
 
-<h1>CONTENT</h1>
+<div>
+    <img class="banner" src="images/bannermybiblio.png" alt="banner principal">
+</div>
+
+
+        <h1>CONTENT</h1>
     </section>
 
 
-
-
-
     <footer>
-            <div class="logo">
-                <a href="index.php">
-                    <img src="images/logomybiblio-removebg-preview.png" alt="logotipo">
-                </a>
-            </div>
+        <div class="logo">
+            <a href="index.php">
+                <img src="images/logomybiblio-removebg-preview.png" alt="logotipo">
+            </a>
+        </div>
 
+        <div>
+
+            <a class="nav-link" href="sobre.php">Sobre nós</a>
+            <a class="nav-link" href="privacidade.php">Política de Privacidade</a>
+            <a class="nav-link" href="catalogo.php">Nosso Acervo</a>
+
+        </div>
+
+
+        <div>
             <div>
-              
-              <a class="nav-link" href="sobre.php">Sobre nós</a>
-              <a class="nav-link" href="privacidade.php">Política de Privacidade</a>
-              <a class="nav-link" href="catalogo.php">Nosso Acervo</a>
-            
+                <p>Contate-nos</p>
             </div>
-
-
             <div>
-                <div><p>Contate-nos</p></div>
-                <div>
-                    <a href=""><img class="footericon" src="images/icons8-whatsapp-50.png" alt=""></a>
-                    <a href=""><img class="footericon" src="images/icons8-instagram-50.png" alt=""></a>
-                    <a href=""><img class="footericon" src="images/icons8-facebook-50.png" alt=""></a>
-                    <a href=""><img class="footericon" src="images/icons8-twitterx-50.png" alt=""></a>
-                </div>
+                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png" alt=""></a>
+                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png" alt=""></a>
+                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png" alt=""></a>
+                <a href="https://twitter.com/"><img class="footericon" src="images/icons8-twitterx-50.png" alt=""></a>
             </div>
+        </div>
 
     </footer>
 
