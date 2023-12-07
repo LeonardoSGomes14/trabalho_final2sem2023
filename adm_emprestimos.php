@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página do Administrador</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/icons8-digital-library-96.png" type="image/x-icon">
 </head>
 
@@ -19,7 +19,7 @@
         <nav class="nav-bar">
             <ul>
                 <li class="nav-bts"><a class="nav-link" href="index.php">HOME</a></li>
-                <li class="nav-bts"><a class="nav-link" href="sobre.php">SOBRE NÓS</a></li>
+                <li class="nav-bts"><a class="nav-link" href="index.php#quemsomos">SOBRE NÓS</a></li>
                 <li class="nav-bts"><a class="nav-link" href="catalogo.php">LIVROS</a></li>
                 <li class="nav-bts"><a class="nav-link" href="useremp.php">MEUS EMPRÉSTIMOS</a></li>
 
@@ -48,7 +48,7 @@
 
         <div>
 
-            <a class="nav-link" href="sobre.php">Sobre nós</a>
+            <a class="nav-link" href="index.php#quemsomos">Sobre nós</a>
             <a class="nav-link" href="privacidade.php">Política de Privacidade</a>
             <a class="nav-link" href="catalogo.php">Nosso Acervo</a>
 

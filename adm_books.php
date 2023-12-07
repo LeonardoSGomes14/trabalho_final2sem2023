@@ -28,7 +28,7 @@ if (!isset($_SESSION['id'])) {
         <nav class="nav-bar">
             <ul>
                 <li class="nav-bts"><a class="nav-link" href="index.php">HOME</a></li>
-                <li class="nav-bts"><a class="nav-link" href="sobre.php">SOBRE NÓS</a></li>
+                <li class="nav-bts"><a class="nav-link" href="index.php#quemsomos">SOBRE NÓS</a></li>
                 <li class="nav-bts"><a class="nav-link" href="catalogo.php">LIVROS</a></li>
                 <li class="nav-bts"><a class="nav-link" href="useremp.php">MEUS EMPRÉSTIMOS</a></li>
 
@@ -102,7 +102,7 @@ if (!isset($_SESSION['id'])) {
             <input type="text" name="qnt" placeholder="Nova Quantidade" required>
             <input type="text" name="autor" placeholder="Novo Autor" required>
             <input type="file" name="imagem" accept="image/*">
-            <button type="submit" name="atualizar" value="atualizar">Atualizar</button>
+                        <button type="submit" name="atualizar" value="atualizar">Atualizar</button>
         </form>
 
         <h2>Excluir Livro</h2>
@@ -128,7 +128,7 @@ if (!isset($_SESSION['id'])) {
             <input type="text" name="qnt" placeholder="Quantidade" required><br>
             <input type="text" name="autor" placeholder="Autor" required><br>
             <input type="file" name="imagem" accept="image/*"><br><br>
-            <button type="submit" name="cadastrar" value="cadastrar">Cadastrar</button>
+                        <button type="submit" name="cadastrar" value="cadastrar">Cadastrar</button>
         </form>
 
         <?php
@@ -140,7 +140,7 @@ if (!isset($_SESSION['id'])) {
                 $qnt = $_POST['qnt'];
                 $autor = $_POST['autor'];
                 $imagem = $_POST['imagem'];
-
+                
                 // Chama método do controlador para atualizar livro
                 $bookController->atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero);
                 echo '<h3>Livro atualizado com sucesso!</h3>';
@@ -159,7 +159,7 @@ if (!isset($_SESSION['id'])) {
                 $genero = $_POST['genero'];
                 $qnt = $_POST['qnt'];
                 $autor = $_POST['autor'];
-
+                
                 // Verifica se um arquivo de imagem foi enviado
                 if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] === UPLOAD_ERR_OK) {
                     $imagem_destino = "uploads/" . $_FILES["imagem"]["name"];
@@ -186,7 +186,7 @@ if (!isset($_SESSION['id'])) {
 
         <div>
 
-            <a class="nav-link" href="sobre.php">Sobre nós</a>
+            <a class="nav-link" href="index.php#quemsomos">Sobre nós</a>
             <a class="nav-link" href="privacidade.php">Política de Privacidade</a>
             <a class="nav-link" href="catalogo.php">Nosso Acervo</a>
 

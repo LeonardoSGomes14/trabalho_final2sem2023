@@ -36,7 +36,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
             </div>
             <nav class="nav-bar">
                 <ul>
-                    <li class="nav-bts"><a class="nav-link" href="sobre.php">SOBRE NÓS</a></li>
+                    <li class="nav-bts"><a class="nav-link" href="#quemsomos">SOBRE NÓS</a></li>
                     <li class="nav-bts"><a class="nav-link" href="catalogo.php">LIVROS</a></li>
                     <li class="nav-bts"><a class="nav-link" href="useremp.php">MEUS EMPRÉSTIMOS</a></li>
 
@@ -54,12 +54,55 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
     <section>
 
-<div>
-    <img class="banner" src="images/bannermybiblio.png" alt="banner principal">
-</div>
 
 
-        <h1>CONTENT</h1>
+        <div style="position: relative; width: 100%; height: 0; padding-top: 50.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+            <iframe loading="lazy"
+                style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF1utjvTQo&#x2F;view?embed"
+                allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+        </div>
+
+        <p class="vantadiv">___________________________________</p>
+
+
+        <div class="vantadiv">
+            <h2> Vantagens que só a biblioteca digital te oferece! </h2>
+        </div>
+
+        <p class="vantadiv">___________________________________</p>
+
+        <div class="vantagens">
+            <img src="images/Cópia de Longa história minimalista branco instagram post.png">
+            <img src="images/Cópia de Longa história minimalista branco instagram post (1).png">
+            <img src="images/Cópia de Longa história minimalista branco instagram post (2).png">
+            <img src="images/Cópia de Longa história minimalista branco instagram post (3).png">
+        </div>
+
+
+
+        <p class="vantadiv">___________________________________</p>
+
+
+        <div class="vantadiv">
+            <h2> Quem somos </h2>
+        </div>
+
+        <p class="vantadiv">___________________________________</p>
+
+        <div class="text">
+            <p class="somos" id="quemsomos">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo dolor
+                dignissimos minima dolorum
+                suscipit, nisi nihil cumque vero similique quam deserunt voluptate quaerat numquam temporibus labore
+                quas
+                quod libero facere. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam consequatur dolorum
+                minus saepe mollitia? Facilis omnis facere nulla, quis consectetur quod laborum, velit laudantium
+                excepturi
+                doloribus magni! Blanditiis, laudantium in!</p>
+        </div>
     </section>
 
 
@@ -72,7 +115,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
         <div>
 
-            <a class="nav-link" href="sobre.php">Sobre nós</a>
+            <a class="nav-link" href="#quemsomos">Sobre nós</a>
             <a class="nav-link" href="privacidade.php">Política de Privacidade</a>
             <a class="nav-link" href="catalogo.php">Nosso Acervo</a>
 
@@ -84,10 +127,10 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
                 <p>Contate-nos</p>
             </div>
             <div>
-                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png" alt=""></a>
-                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png" alt=""></a>
-                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png" alt=""></a>
-                <a href="https://twitter.com/"><img class="footericon" src="images/icons8-twitterx-50.png" alt=""></a>
+                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png"></a>
+                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png"></a>
+                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png"></a>
+                <a href="https://twitter.com/"><img class="footericon" src="images/icons8-twitterx-50.png"></a>
             </div>
         </div>
 
