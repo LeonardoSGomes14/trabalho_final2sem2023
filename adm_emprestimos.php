@@ -35,8 +35,8 @@
         </div>
     </header>
 
-    <section>
-
+    <section class="center">
+        <a href="historico.php">GERAR PDF</a>
     </section>
 
     <footer>

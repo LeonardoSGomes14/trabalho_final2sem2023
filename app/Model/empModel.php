@@ -66,9 +66,15 @@ class EmpModel {
         return $consultaLivrosEmprestados->fetchAll(PDO::FETCH_ASSOC);
     }
     private function registrarHistorico($id_emp, $id_livro, $nomeLivro, $nomeUsuario) {
-        $inserirHistorico = $this->pdo->prepare("INSERT INTO historico (id_emp, id_livro, nome_livro, nome_aluno) VALUES (?, ?, ?, ?)");
+        $inserirHistorico = $this->pdo->prepare("INSERT INTO historico (id_emp, id_livro, nome_livro, nome_user) VALUES (?, ?, ?, ?)");
         $inserirHistorico->execute([$id_emp, $id_livro, $nomeLivro, $nomeUsuario]);
         $dataRegistrada = $this->pdo->query("SELECT hora FROM historico WHERE id_emp = $id_emp")->fetchColumn();
+    }
+
+    public function listarHistorico() {
+        $sql = "SELECT * FROM historico";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
 }

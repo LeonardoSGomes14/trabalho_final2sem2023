@@ -312,6 +312,54 @@ input {
     border-radius: 3px;
 }
 
+.livros {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 0 50px 0 0;
+}
+
+.livros ul {
+    list-style-type: none;
+    align-content: center;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.livros li {
+    border-radius: 7px;
+    border:none;
+    background: whitesmoke;
+}
+
+.livros .genero {
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.genero {
+    border: none;
+    background: rgba(246, 246, 246, 0.756);
+    padding: 0 0 20px 0;
+}
+
+.livrobox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    justify-content: center;
+    margin: 10px;
+    text-align: center;
+}
+
 /*FOOTER*/
 
 footer {

@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
                     <?php echo "<strong>Livro: </strong>" . $emprestimo['nome_livro']; ?> <br>
                     <?php echo "<strong>Nome do Usuário: </strong>" . $emprestimo['nome_user']; ?>
                     <form method="post" action="catalogo.php">
-                        <input type="hidden" name="livro_id" value="<?php echo $emprestimo['id_emp']; ?>">
+                        <input type="hidden" name="id_livro" value="<?php echo $emprestimo['id_emp']; ?>">
                         <button type="submit" name="devolver">Devolver</button><br><br>
                     </form>
                 </li>

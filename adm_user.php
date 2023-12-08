@@ -165,7 +165,6 @@ if (!isset($_SESSION['id'])) {
                 $userController = new userController($pdo);
 
                 $userController->criarUser($nome, $email, $senha, $alvl);
-                header("Location: login.php");
             }
         }
         ?>

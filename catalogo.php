@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['devolver'])) {
         </div>
     </header>
 
-    <section>
+    <section class="center">
         <div class="user-info" id="user-info">
 
             <h3>Olá <?php echo $_SESSION['nome'], "!"; ?> </h3><br>

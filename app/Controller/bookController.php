@@ -20,14 +20,14 @@ class bookController
         return $this->bookmodel->listarbooks();
     }
 
-    public function atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero)
+    public function atualizarbook($id_livro, $nome, $genero, $qnt, $autor, $imagem, $id_genero)
     {
-        $this->bookmodel->atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero);
+        $this->bookmodel->atualizarbook($id_livro, $nome, $genero, $qnt, $autor, $imagem, $id_genero);
     }
 
-    public function deletebooks($id)
+    public function deletebooks($id_livro)
     {
-        $this->bookmodel->deletarbooks($id);
+        $this->bookmodel->deletarbooks($id_livro);
     }
 }
 ?>

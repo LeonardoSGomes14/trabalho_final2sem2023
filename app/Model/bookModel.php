@@ -10,7 +10,7 @@ class bookmodel
 
     public function criarbook($nome, $genero, $qnt, $autor, $imagem, $id_genero)
     {
-        $sql = "INSERT INTO livros (nome, genero, qnt, autor, imagem, $id_genero) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO livros (nome, genero, qnt, autor, imagem, id_genero) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$nome, $genero, $qnt, $autor, $imagem, $id_genero]);
 
@@ -29,18 +29,17 @@ class bookmodel
 
     //Atualizar book 
 
-    public function atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero)
+    public function atualizarbook($id_livro, $nome, $genero, $qnt, $autor, $imagem, $id_genero)
     {
-        $sql = "UPDATE livros SET  nome = ?, genero = ?, qnt = ?, autor = ?, imagem = ?, id_genero = ?
-        WHERE id = ?";
+        $sql = "UPDATE livros SET  nome = ?, genero = ?, qnt = ?, autor = ?, imagem = ?, id_genero = ? WHERE id_livro = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $genero, $qnt, $autor, $imagem, $id_genero, $id]);
+        $stmt->execute([$nome, $genero, $qnt, $autor, $imagem, $id_genero, $id_livro]);
     }
 
-    public function deletarbooks($id) {
-    $sql = "DELETE FROM livros WHERE id = ?";
+    public function deletarbooks($id_livro) {
+    $sql = "DELETE FROM livros WHERE id_livro = ?";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->execute([$id]);
+    $stmt->execute([$id_livro]);
 }
 }
 

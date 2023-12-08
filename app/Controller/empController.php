@@ -32,4 +32,8 @@ class EmpController
     {
         return $this->empmodel->listarLivrosEmprestados($nome_user);
     }
+
+    public function listarHistorico() {
+        return $this->empmodel->listarHistorico();
+    }
 }

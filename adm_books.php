@@ -98,7 +98,7 @@ if (!isset($_SESSION['id'])) {
                         <tbody>
                             <tr>
                                 <td>
-                                    <?php echo $book['id']; ?>
+                                    <?php echo $book['id_livro']; ?>
                                 </td>
                                 <td>
                                     <?php echo $book['nome']; ?>
@@ -123,10 +123,10 @@ if (!isset($_SESSION['id'])) {
       
         <h2>Atualizar Livro</h2>
         <form method="post">
-            <label for="id">Selecione o livro a ser atualizado:</label>
-            <select name="id">
+            <label for="id_livro">Selecione o livro a ser atualizado:</label>
+            <select name="id_livro">
                 <?php foreach ($books as $book): ?>
-                    <option value="<?php echo $book['id']; ?>">
+                    <option value="<?php echo $book['id_livro']; ?>">
                         <?php echo $book['nome']; ?>
                     </option>
                 <?php endforeach; ?>
@@ -135,6 +135,7 @@ if (!isset($_SESSION['id'])) {
             <input type="text" name="genero" placeholder="Novo Gênero" required>
             <input type="text" name="qnt" placeholder="Nova Quantidade" required>
             <input type="text" name="autor" placeholder="Novo Autor" required>
+            <input type="number" name="id_genero" placeholder="ID do Gênero" required><br>
             <input type="file" name="imagem" accept="image/*">
             <button class="botao "type="submit" name="atualizar" value="atualizar">Atualizar</button>
         </form>
@@ -149,6 +150,7 @@ if (!isset($_SESSION['id'])) {
             <input type="text" name="genero" placeholder="Gênero" required><br>
             <input type="text" name="qnt" placeholder="Quantidade" required><br>
             <input type="text" name="autor" placeholder="Autor" required><br>
+            <input type="number" name="id_genero" placeholder="ID do Gênero" required><br>
             <input type="file" name="imagem" accept="image/*"><br><br>
             <button class="botao" type="submit" name="cadastrar" value="cadastrar">Cadastrar</button>
         </form>
@@ -156,20 +158,21 @@ if (!isset($_SESSION['id'])) {
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['atualizar'])) {
-                $id = $_POST['id'];
+                $id_livro = $_POST['id_livro'];
                 $nome = $_POST['nome'];
                 $genero = $_POST['genero'];
                 $qnt = $_POST['qnt'];
                 $autor = $_POST['autor'];
+                $id_genero = $_POST['id_genero'];
                 $imagem = $_POST['imagem'];
 
                 // Chama método do controlador para atualizar livro
-                $bookController->atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero);
+                $bookController->atualizarbook($id_livro, $nome, $genero, $qnt, $autor, $imagem, $id_genero);
                 echo '<h3>Livro atualizado com sucesso!</h3>';
             }
 
             if (isset($_POST['excluir'])) {
-                $id = $_POST['id'];
+                $id = $_POST['id_livro'];
 
                 // Chama método do controlador para excluir livro
                 $bookController->deletebooks($id);
@@ -181,6 +184,7 @@ if (!isset($_SESSION['id'])) {
                 $genero = $_POST['genero'];
                 $qnt = $_POST['qnt'];
                 $autor = $_POST['autor'];
+                $id_genero = $_POST['id_genero'];
 
                 // Verifica se um arquivo de imagem foi enviado
                 if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] === UPLOAD_ERR_OK) {
@@ -199,10 +203,10 @@ if (!isset($_SESSION['id'])) {
         ?>
         <h2>Excluir Livro</h2>
         <form method="post">
-            <label for="id">Selecione o livro a ser excluído:</label>
-            <select name="id">
+            <label for="id_livro">Selecione o livro a ser excluído:</label>
+            <select name="id_livro">
                 <?php foreach ($books as $book): ?>
-                    <option value="<?php echo $book['id']; ?>">
+                    <option value="<?php echo $book['id_livro']; ?>">
                         <?php echo $book['nome']; ?>
                     </option>
                 <?php endforeach; ?>
