@@ -136,11 +136,18 @@
     letter-spacing: 1.15px;
     background-color: #4B70E2;
     color: #f9f9f9;
-    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;
+    box-shadow: 3px 3px 5px #383838;
     border: none;
     outline: none;
   }
   
+  .button:hover{
+    transform: scale(110%);
+    transition: 0.25s;
+    box-shadow: 5px 5px 10px #1d1d1d;
+  }
+
+
   /**/
   .a-container {
     z-index: 100;
@@ -198,11 +205,7 @@
   .switch__button {
     cursor: pointer;
   }
-  .switch__button:hover {
-    box-shadow: 6px 6px 10px #d1d9e6, -6px -6px 10px #f9f9f9;
-    transform: scale(0.985);
-    transition: 0.25s;
-  }
+
   .switch__button:active, .switch__button:focus {
     box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #f9f9f9;
     transform: scale(0.97);

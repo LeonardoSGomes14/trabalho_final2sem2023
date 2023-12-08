@@ -44,10 +44,8 @@ if (!isset($_SESSION['id'])) {
         </div>
     </header>
 
-    <section>
-        <div class="lista-noticias">
-            <h2>LISTA DE LIVROS</h2>
-            <ul>
+    <section class="center">
+        <div>
                 <?php
                 require_once 'db/config.php';
                 require_once 'app/Controller/bookController.php';
@@ -60,7 +58,7 @@ if (!isset($_SESSION['id'])) {
                 $password = '';
 
                 // conexão PDO
-
+                
                 try {
                     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -80,18 +78,54 @@ if (!isset($_SESSION['id'])) {
                 $bookController = new bookController($pdo);
                 $books = $bookController->listarbooks();
 
-                foreach ($books as $book) {
-                    echo "<li>Nome: {$book['nome']} | Gênero: {$book['genero']} | Quantidade: {$book['qnt']} | Autor: {$book['autor']}</li>";
-                }
                 ?>
-            </ul>
+
+                <!-- Exibir lista de usuários -->
+                <legend>
+                    <h1>Lista de Livros</h1>
+                </legend>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Gênero</th>
+                            <th>ID Gênero</th>
+                        </tr>
+                    </thead>
+                    <?php foreach ($books as $book): ?>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <?php echo $book['id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $book['nome']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $book['qnt']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $book['genero']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $book['id_genero']; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <tbody>
+                </table>
         </div>
 
+        <div class="formstyle">
+
+      
         <h2>Atualizar Livro</h2>
         <form method="post">
             <label for="id">Selecione o livro a ser atualizado:</label>
             <select name="id">
-                <?php foreach ($books as $book) : ?>
+                <?php foreach ($books as $book): ?>
                     <option value="<?php echo $book['id']; ?>">
                         <?php echo $book['nome']; ?>
                     </option>
@@ -102,23 +136,11 @@ if (!isset($_SESSION['id'])) {
             <input type="text" name="qnt" placeholder="Nova Quantidade" required>
             <input type="text" name="autor" placeholder="Novo Autor" required>
             <input type="file" name="imagem" accept="image/*">
-                        <button type="submit" name="atualizar" value="atualizar">Atualizar</button>
+            <button class="botao "type="submit" name="atualizar" value="atualizar">Atualizar</button>
         </form>
 
-        <h2>Excluir Livro</h2>
-        <form method="post">
-            <label for="id">Selecione o livro a ser excluído:</label>
-            <select name="id">
-                <?php foreach ($books as $book) : ?>
-                    <option value="<?php echo $book['id']; ?>">
-                        <?php echo $book['nome']; ?>
-                    </option>
-                <?php endforeach; ?>
-            </select><br><br>
-            <button type="submit" name="excluir" value="excluir">Excluir</button>
-        </form>
 
-        <div class="cad">
+        <div>
             <p>Cadastro</p>
         </div>
 
@@ -128,7 +150,7 @@ if (!isset($_SESSION['id'])) {
             <input type="text" name="qnt" placeholder="Quantidade" required><br>
             <input type="text" name="autor" placeholder="Autor" required><br>
             <input type="file" name="imagem" accept="image/*"><br><br>
-                        <button type="submit" name="cadastrar" value="cadastrar">Cadastrar</button>
+            <button class="botao" type="submit" name="cadastrar" value="cadastrar">Cadastrar</button>
         </form>
 
         <?php
@@ -140,7 +162,7 @@ if (!isset($_SESSION['id'])) {
                 $qnt = $_POST['qnt'];
                 $autor = $_POST['autor'];
                 $imagem = $_POST['imagem'];
-                
+
                 // Chama método do controlador para atualizar livro
                 $bookController->atualizarbook($id, $nome, $genero, $qnt, $autor, $imagem, $id_genero);
                 echo '<h3>Livro atualizado com sucesso!</h3>';
@@ -159,7 +181,7 @@ if (!isset($_SESSION['id'])) {
                 $genero = $_POST['genero'];
                 $qnt = $_POST['qnt'];
                 $autor = $_POST['autor'];
-                
+
                 // Verifica se um arquivo de imagem foi enviado
                 if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] === UPLOAD_ERR_OK) {
                     $imagem_destino = "uploads/" . $_FILES["imagem"]["name"];
@@ -175,9 +197,24 @@ if (!isset($_SESSION['id'])) {
             }
         }
         ?>
+        <h2>Excluir Livro</h2>
+        <form method="post">
+            <label for="id">Selecione o livro a ser excluído:</label>
+            <select name="id">
+                <?php foreach ($books as $book): ?>
+                    <option value="<?php echo $book['id']; ?>">
+                        <?php echo $book['nome']; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select><br><br>
+            <button class="botao" type="submit" name="excluir" value="excluir">Excluir</button>
+        </form>
+        </div>
     </section>
 
+
     <footer>
+
         <div class="logo">
             <a href="index.php">
                 <img src="images/logomybiblio-removebg-preview.png" alt="logotipo">
@@ -198,9 +235,12 @@ if (!isset($_SESSION['id'])) {
                 <p>Contate-nos</p>
             </div>
             <div>
-                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png" alt=""></a>
-                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png" alt=""></a>
-                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png" alt=""></a>
+                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png"
+                        alt=""></a>
+                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png"
+                        alt=""></a>
+                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png"
+                        alt=""></a>
                 <a href="https://twitter.com/"><img class="footericon" src="images/icons8-twitterx-50.png" alt=""></a>
             </div>
         </div>

@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
 }
 
 html {
@@ -122,6 +123,7 @@ header {
 section {
     background-color: rgb(255, 255, 255);
     grid-area: pag;
+    padding-bottom: 155px;
 }
 
 .banner {
@@ -142,8 +144,35 @@ section {
 
 .vantadiv p {
     margin-top: 10px;
+    margin-bottom: 55px;
 }
 
+.vantatext .somos {
+    display: flex;
+    align-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 1150px;
+    border-radius: 15px;
+    background-color: #f1f1f1;
+    box-shadow: 9px 9px 15px rgb(129, 129, 129);
+}
+
+.vantatext {
+    display: flex;
+    justify-content: center;
+    margin-top: 105px;
+    margin-bottom: 25px;
+}
+
+.textb {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin: 25px;
+    letter-spacing: 2px;
+
+}
 
 .vantagens {
     display: flex;
@@ -165,10 +194,7 @@ section {
     transition: 0.25s;
 }
 
-
-.text{
-    display: flex;
-    align-items: center;
+.text {
     max-width: 850px;
     background-color: #d2d2d2;
     border-radius: 10px;
@@ -181,6 +207,110 @@ section {
     color: #1c638b;
 }
 
+.vantadiv .admdiv {
+    margin-top: 40px;
+    margin-bottom: 55px;
+}
+
+
+.admdiv {
+    background-color: #164d6d;
+    margin: 50px;
+    width: 450px;
+    height: 450px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgb(90, 90, 90);
+}
+
+.admdiv img {
+    margin-top: 40px;
+    margin-bottom: 45px;
+    height: 150px;
+    width: 150px;
+}
+
+.admdiv h1 {
+    color: #53B7DC;
+}
+
+.admdiv h3 {
+    color: white;
+}
+
+.admdiv button {
+    font-size: 1rem;
+    margin-top: 15px;
+    width: 155px;
+    height: 45px;
+    background-color: #53B7DC;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 3px 3px 8PX rgb(37, 37, 37);
+    font-weight: bold;
+}
+
+.admdiv button:hover {
+    cursor: pointer;
+    transform: scale(105%);
+    transition: 0.25s;
+    box-shadow: 6px 6px 10px rgb(0, 0, 0);
+}
+
+
+.admdiv a {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.formstyle {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    width: 1050px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.botao {
+    text-decoration: none;
+    background-color: #1f6a96;
+    border: none;
+    border-radius: 2px;
+    color: #ffffff;
+    margin: 1rem;
+}
+
+.botao:hover {
+    transition: 0.25s;
+    color: #e6e6e6;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+input {
+    border: none;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    margin: 0.5vh;
+    border-radius: 3px;
+}
 
 /*FOOTER*/
 
@@ -233,13 +363,13 @@ footer .nav-link a:hover {
 
 /*MOBILE*/
 
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0 auto;
-}
 
 @media screen and (max-width: 900px) {
 
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0 auto;
+    }
 
     body {
         background-color: #f0f0f0;

@@ -65,16 +65,16 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
                 allowfullscreen="allowfullscreen" allow="fullscreen">
             </iframe>
         </div>
+        <div>
+            <p class="vantadiv">___________________________________</p>
 
-        <p class="vantadiv">___________________________________</p>
 
+            <div class="vantadiv">
+                <h2> Vantagens que só a biblioteca digital te oferece! </h2>
+            </div>
 
-        <div class="vantadiv">
-            <h2> Vantagens que só a biblioteca digital te oferece! </h2>
+            <p class="vantadiv">___________________________________</p>
         </div>
-
-        <p class="vantadiv">___________________________________</p>
-
         <div class="vantagens">
             <img src="images/Cópia de Longa história minimalista branco instagram post.png">
             <img src="images/Cópia de Longa história minimalista branco instagram post (1).png">
@@ -83,26 +83,46 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         </div>
 
 
+        <div>
+            <p class="vantadiv" id="quemsomos">___________________________________</p>
 
-        <p class="vantadiv">___________________________________</p>
 
+            <div class="vantadiv" >
+                <h2> Quem somos </h2>
+            </div>
 
-        <div class="vantadiv">
-            <h2> Quem somos </h2>
+            <p class="vantadiv">___________________________________</p>
         </div>
 
-        <p class="vantadiv">___________________________________</p>
 
-        <div class="text">
-            <p class="somos" id="quemsomos">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo dolor
-                dignissimos minima dolorum
-                suscipit, nisi nihil cumque vero similique quam deserunt voluptate quaerat numquam temporibus labore
-                quas
-                quod libero facere. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam consequatur dolorum
-                minus saepe mollitia? Facilis omnis facere nulla, quis consectetur quod laborum, velit laudantium
-                excepturi
-                doloribus magni! Blanditiis, laudantium in!</p>
+        <div class="vantatext">
+            <div class="somos">
+                <p class="textb">
+
+                    Bem-vindo à nossa biblioteca digital! <br><br>
+
+                    Tudo começou com uma paixão compartilhada por conhecimento e inovação. Nossa jornada teve início com
+                    a visão de criar um espaço digital que não apenas armazenasse livros, mas que também conectasse
+                    leitores, promovesse a descoberta e facilitasse o acesso à informação. <br><br>
+
+                    Nossa equipe é formada por indivíduos apaixonados por literatura, tecnologia e educação. Combinamos
+                    diferentes habilidades e experiências para construir uma plataforma que atenda às necessidades dos
+                    leitores modernos. <br><br>
+
+                    Acreditamos que a leitura é uma porta para o crescimento pessoal e intelectual. Nosso objetivo é
+                    proporcionar uma experiência única, onde cada página lida seja uma jornada de aprendizado e
+                    prazer.<br><br>
+
+                    Estamos comprometidos em oferecer uma biblioteca digital que inspire, informe e entusiasme.
+                    Agradecemos por fazer parte desta jornada conosco e esperamos que desfrute da nossa coleção de
+                    conhecimento e histórias.<br><br>
+
+                    Seja bem-vindo à nossa comunidade!
+
+                </p>
+            </div>
         </div>
+
     </section>
 
 
@@ -115,7 +135,6 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
         <div>
 
-            <a class="nav-link" href="#quemsomos">Sobre nós</a>
             <a class="nav-link" href="privacidade.php">Política de Privacidade</a>
             <a class="nav-link" href="catalogo.php">Nosso Acervo</a>
 

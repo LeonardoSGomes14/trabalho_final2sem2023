@@ -47,14 +47,10 @@ if (!isset($_SESSION['id'])) {
     </header>
 
 
+    <section class="center">
 
+        <div>
 
-
-    <section>
-
-        <div class="lista-noticias">
-
-            <h2>LISTA DE USUÁRIOS</h2>
             <?php
             require_once 'db/config.php';
             require_once 'app/Controller/userController.php';
@@ -92,61 +88,64 @@ if (!isset($_SESSION['id'])) {
             ?>
 
             <!-- Exibir lista de usuários -->
-            <ul>
-                <?php foreach ($users as $user) : ?>
-                    <li>
-                        nome: <?php echo $user['nome']; ?>
-                        Email: <?php echo $user['email']; ?>
-                        Senha: <?php echo $user['senha']; ?>
-                        Nível de Acesso: <?php echo $user['alvl']; ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-
-
-        <!-- atualizar dados -->
-        <h2>Atualizar Dados do usuário</h2>
-        <form method="post">
-            <div class="cadastro-n">
-                <select name="id">
-                    <?php foreach ($users as $user) : ?>
-                        <option value="<?php echo $user['id']; ?>">
-                            <?php echo $user['nome']; ?>
-                        </option>
+            <legend>
+                <h1>Lista de Users</h1>
+            </legend>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Senha</th>
+                        <th>Níveis de Permissão</th>
+                    </tr>
+                </thead>
+                <?php foreach ($users as $user): ?>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <?php echo $user['id']; ?>
+                            </td>
+                            <td>
+                                <?php echo $user['nome']; ?>
+                            </td>
+                            <td>
+                                <?php echo $user['email']; ?>
+                            </td>
+                            <td>
+                                <?php echo $user['senha']; ?>
+                            </td>
+                            <td>
+                                <?php echo $user['alvl']; ?>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
-                </select>
-                <input type="text" name="atualizar_nome" placeholder="Nome">
-                <input type="text" name="atualizar_email" placeholder="Email">
-                <input type="password" name="atualizar_senha" placeholder="Senha">
-                <input type="text" name="atualizar_alvl" placeholder="Nível de Acesso">
-                <div class="inp"><button type="submit">Atualizar</button>
-        </form>
-        </div>
+                <tbody>
+            </table>
         </div>
 
-        <?php
-        if (isset($_POST['id'])) {
-            $usermodel->deletarusers(
-                $_POST['id']
-            );
-        }
-        ?>
+        <div class="formstyle">
 
-        <h2>Excluir Usuário</h2>
-        <form method="post">
-            <div class="cadastro-n">
-                <select name="id">
-                    <?php foreach ($users as $user) : ?>
-                        <option value="<?php echo $user['id']; ?>">
-                            <?php echo $user['nome']; ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-                <div class="inp"><button type="submit">Deletar</button></div>
-
-        </form>
-
+            <!-- atualizar dados -->
+            <h2>Atualizar Dados do usuário</h2>
+            <form method="post">
+                <div class="cadastro-n">
+                    <select name="id">
+                        <?php foreach ($users as $user): ?>
+                            <option value="<?php echo $user['id']; ?>">
+                                <?php echo $user['nome']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="text" name="atualizar_nome" placeholder="Nome">
+                    <input type="text" name="atualizar_email" placeholder="Email">
+                    <input type="password" name="atualizar_senha" placeholder="Senha">
+                    <input type="text" name="atualizar_alvl" placeholder="Nível de Acesso">
+                    <div><button class="botao" type="submit">Atualizar</button>
+            </form>
+        </div>
+        </div>
 
         <?php
 
@@ -172,50 +171,73 @@ if (!isset($_SESSION['id'])) {
         ?>
 
 
-        <div class="cad">
+        <div>
             <p>Cadastro</p>
         </div>
 
         <form method="post">
-            <div class="lab">
+            <div>
                 <label for="nome">Nome Completo:</label>
             </div>
 
-            <div class="inp">
+            <div>
                 <input type="text" name="nome" required><br>
             </div>
 
 
 
-            <div class="lab">
+            <div>
                 <label for="email">Email:</label>
             </div>
 
-            <div class="inp">
+            <div>
                 <input type="email" name="email" required><br>
             </div>
 
 
 
-            <div class="lab">
+            <div>
                 <label for="senha">Senha:</label>
             </div>
 
-            <div class="inp">
+            <div>
                 <input type="password" name="senha" required>
             </div>
 
-            <div class="lab">
+            <div>
                 <label for="alvl">Nível de Acesso</label>
             </div>
 
-            <div class="inp">
+            <div>
                 <input type="text" name="alvl" required>
             </div>
 
             <button class="botao" type="submit" name="submit" value="cadastrar">Cadastrar</button>
         </form>
+        <?php
+        if (isset($_POST['id'])) {
+            $usermodel->deletarusers(
+                $_POST['id']
+            );
+        }
+        ?>
 
+        <h2>Excluir Usuário</h2>
+        <form method="post">
+            <div class="cadastro-n">
+                <select name="id">
+                    <?php foreach ($users as $user): ?>
+                        <option value="<?php echo $user['id']; ?>">
+                            <?php echo $user['nome']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <div><button class="botao" type="submit">Deletar</button></div>
+
+        </form>
+
+
+        </div>
     </section>
 
 
@@ -243,9 +265,12 @@ if (!isset($_SESSION['id'])) {
                 <p>Contate-nos</p>
             </div>
             <div>
-                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png" alt=""></a>
-                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png" alt=""></a>
-                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png" alt=""></a>
+                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png"
+                        alt=""></a>
+                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png"
+                        alt=""></a>
+                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png"
+                        alt=""></a>
                 <a href="https://twitter.com/"><img class="footericon" src="images/icons8-twitterx-50.png" alt=""></a>
             </div>
         </div>

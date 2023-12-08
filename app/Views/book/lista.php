@@ -7,7 +7,7 @@
 
 <body>
     <?php
-    $livrosPogenero = [];
+    $livrosPorgenero = [];
     foreach ($livros as $livro) {
         $genero = $livro['genero'];
         if (!isset($livrosPorgenero[$genero])) {
@@ -19,7 +19,7 @@
 
     <h1>Lista de Livros</h1>
 
-    <?php foreach ($livrosPorgenero as $genero => $livrosNagenero) : ?>
+    <?php foreach ($livrosPorgenero as $genero => $livrosNogenero) : ?>
         <div class="genero">
             <h2><?php echo $genero; ?></h2>
             <table border="1">
@@ -44,7 +44,7 @@
                                 }
                                 ?>
                             </td>
-                            <td><?php echo $livro['livro_id']; ?></td>
+                            <td><?php echo $livro['id']; ?></td>
                             <td><?php echo $livro['nome']; ?></td>
                             <td><?php echo $livro['quantidade']; ?></td>
                             <td><?php echo $livro['id_genero']; ?></td>

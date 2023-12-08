@@ -50,17 +50,27 @@ if (!isset($_SESSION['id'])) {
 
 
 
-    <section>
-        <div>
-            <button><a href="adm_user.php">Administração de Usuários</a></button>
+
+    <section class="vantadiv">
+        <div class="admdiv">
+            <img src="images/icons8-user-96.png" alt="">
+            <h1>USUÁRIOS</h1>
+            <h3>Administração de usuários</h3>
+            <button><a href="adm_user.php">Entrar</a></button>
         </div>
 
-        <div>
-            <button><a href="adm_books.php">Administração de Livros</a></button>
+        <div class="admdiv">
+            <img src="images/icons8-books-100.png" alt="">
+            <h1>LIVROS</h1>
+            <h3>Administração de livros</h3>
+            <button><a href="adm_books.php">Entrar</a></button>
         </div>
 
-        <div>
-            <button><a href="adm_emprestimos.php">Administração de Emprestimos</a></button>
+        <div class="admdiv">
+            <img src="images/icons8-library-100.png" alt="">
+            <h1>EMPRÉSTIMOS</h1>
+            <h3>Administração de empréstimos</h3>
+            <button><a href="adm_emprestimos.php">Entrar</a></button>
         </div>
 
 
@@ -94,9 +104,12 @@ if (!isset($_SESSION['id'])) {
                 <p>Contate-nos</p>
             </div>
             <div>
-                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png" alt=""></a>
-                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png" alt=""></a>
-                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png" alt=""></a>
+                <a href="https://web.whatsapp.com"><img class="footericon" src="images/icons8-whatsapp-50.png"
+                        alt=""></a>
+                <a href="https://www.instagram.com/"><img class="footericon" src="images/icons8-instagram-50.png"
+                        alt=""></a>
+                <a href="https://www.facebook.com/"><img class="footericon" src="images/icons8-facebook-50.png"
+                        alt=""></a>
                 <a href="https://twitter.com/"><img class="footericon" src="images/icons8-twitterx-50.png" alt=""></a>
             </div>
         </div>
